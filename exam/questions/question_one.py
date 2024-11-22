@@ -265,7 +265,7 @@ def read_coverage_report_from_json(file_path: str) -> List[CoverageItem]:
 # so that this function is correctly documented by an software engineer using it.
 
 
-def read_coverage_report_from_yaml(file_path: str) -> List[CoverageItem]:
+def read_coverage_report_from_yaml(file_path: str):
     """Read and parse a YAML file to create a list of CoverageItem objects."""
     coverage_report = []
     return coverage_report
