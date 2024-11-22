@@ -1,0 +1,140 @@
+setup: |
+  echo "🐊 Attempt to install software engineering tools"
+  echo "🐊 Will not re-install if already installed"
+  poetry install
+---
+
+# Honor Code {{{
+
+- ../README.md:
+    - description: Ensure that the README.md file exists inside of the root of the GitHub repository
+      check: ConfirmFileExists
+    - description: Delete the phrase 'Add Your Name Here' and add your own name as an Honor Code pledge in README.md
+      check: MatchFileFragment
+      options:
+        fragment: "Add Your Name Here"
+        count: 0
+        exact: true
+    - description: Complete all TODOs, remove the TODO markers, and rewrite comments for README.md
+      check: MatchFileFragment
+      options:
+        fragment: "TODO"
+        count: 0
+        exact: true
+    - description: Retype the every word in the Honor Code pledge in README.md
+      check: MatchFileFragment
+      options:
+        fragment: "I adhered to the Allegheny College Honor Code while completing this programming skill check."
+        count: 3
+        exact: true
+    - description: Indicate that you have completed all of the tasks in the README.md
+      check: MatchFileFragment
+      options:
+        fragment: "- [X]"
+        count: 10
+        exact: true
+
+# }}}
+
+# Basic Program Characteristics {{{
+
+# Question 1
+
+# perform checks on the program file
+- questions/question_one.py:
+    # --> file exists in the correct directory
+    - description: Ensure that question_one.py file exists in the questions/ directory
+      check: ConfirmFileExists
+    # --> no remaining TODO markers in the source code
+    - description: Complete all TODOs, remove the TODO markers, and rewrite comments for question_one.py
+      check: MatchFileFragment
+      options:
+        fragment: TODO
+        count: 0
+        exact: true
+    # --> contains suitable number of docstrings for both module and the function (note, differs from symbex)
+    - description: Create a sufficient number of docstring (i.e., multiple-line) comments in question_one.py
+      check: CountMultipleLineComments
+      options:
+        language: "Python"
+        count: 10
+        exact: false
+    # --> contains suitable number of single-line comments (note, differs from symbex)
+    - description: Create a sufficient number of single-line comments in question_one.py
+      check: CountSingleLineComments
+      options:
+        language: "Python"
+        count: 20
+        exact: false
+
+# perform checks on the test file
+- tests/test_question_one.py:
+    # --> file exists in the correct directory
+    - description: Ensure that test_question_one.py file exists in the tests/ directory
+      check: ConfirmFileExists
+
+# }}}
+
+# Software Testing with ExecExam for Executable Examinations {{{
+
+# Question 1
+
+- description: Run checks for Question 1 Part (a) with 'execexam' command and confirm correct exit code
+  command: poetry run execexam . tests/ --mark "question_one_part_a" --no-fancy --report status --report trace --report failure --report setup --report code
+
+- description: Run checks for Question 1 Part (b) with 'execexam' command and confirm correct exit code
+  command: poetry run execexam . tests/ --mark "question_one_part_b" --no-fancy --report status --report trace --report failure --report setup --report code
+
+- description: Run checks for Question 1 Part (c) with 'execexam' command and confirm correct exit code
+  command: poetry run execexam . tests/ --mark "question_one_part_c" --no-fancy --report status --report trace --report failure --report setup --report code
+
+- description: Run checks for Question 1 Part (d) with 'execexam' command and confirm correct exit code
+  command: poetry run execexam . tests/ --mark "question_one_part_d" --no-fancy --report status --report trace --report failure --report setup --report code
+
+# }}}
+
+# Program Analysis with Software Engineering Tools {{{
+
+# Question 1
+
+# run a command: ruff check with default settings found in .ruff.toml file
+- description: Ensure that Question 1 follows industry-standard rules using the command 'ruff check'
+  command: poetry run ruff check questions/question_one.py
+
+# run a command: ruff format with default settings found in .ruff.toml file
+- description: Ensure that Question 1 adheres to an industry-standard format using the command 'ruff format'
+  command: poetry run ruff format questions/question_one.py --check
+
+# run a command: mypy with the default settings to confirm type alignment for all functions
+- description: Ensure that Question 1 has correct type annotations using the command 'mypy'
+  command: poetry run mypy questions/question_one.py
+
+# run symbex: count functions with full type annotations
+- description: Ensure that Question 1 has correct number of fully type annotated functions using the command 'symbex'
+  check: MatchCommandFragment
+  options:
+    command: "poetry run symbex -s --fully-typed -f questions/question_one.py --count"
+    fragment: 5
+    count: 1
+    exact: true
+
+# run symbex: count functions with docstring-based documentation (note: does not count module docstring)
+- description: Ensure that Question 1 has correct number of documented functions using the command 'symbex'
+  check: MatchCommandFragment
+  options:
+    command: "poetry run symbex -s --documented -f questions/question_one.py --count"
+    fragment: 6
+    count: 1
+    exact: true
+
+# run symbex: confirm that there are no functions that are undocumented (i.e., do not have a docstring)
+- description: Ensure that Question 1 has no undocumented functions using the command 'symbex'
+  check: MatchCommandFragment
+  options:
+    command: "poetry run symbex -s --undocumented -f questions/question_one.py --count"
+    fragment: 0
+    count: 1
+    exact: true
+
+
+# }}}
