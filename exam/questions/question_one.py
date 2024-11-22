@@ -1,6 +1,6 @@
 """Question One: Programming Skill Check."""
 
-# Note: The imports in the following source code block may no longer
+# TODO: The imports in the following source code block may no longer
 # adhere to the industry best practices for Python source code.
 # You must reorganize and/or add the imports so that they adhere
 # to the industry best practices for Python source code.
@@ -54,16 +54,16 @@ from typing import List
 #     are present in the first coverage report but not in the second
 #     coverage report, based on the id and covered status
 
-# Note: These functions may not not have all of the correct type annotations for
+# TODO: These functions may not not have all of the correct type annotations for
 # certain variables. You must add all of any needed type annotations so that the
 # function and any code that uses it passes the type checker.
 
-# Note: These functions may not have a docstring and thus it may not adhere to
+# TODO: These functions may not have a docstring and thus it may not adhere to
 # industry best practices for Python source code. You may need to add a
 # docstring so that this function is correctly documented by an software
 # engineer using it.
 
-# Note: You do not need to modify any of the source code in the CoverageItem
+# TODO: You do not need to modify any of the source code in the CoverageItem
 # class. If you modify the source code the CoverageItem class it is likely
 # that some of the tests for the required functions will not pass.
 
@@ -123,11 +123,11 @@ def compute_coverage_difference(
 # --> If the coverage report is empty, the function should return 0.0 to
 #     indicate that no items were covered when the tests were run
 
-# Note: These functions may not not have all of the correct type annotations for
+# TODO: These functions may not not have all of the correct type annotations for
 # certain variables. You must add all of any needed type annotations so that the
 # function and any code that uses it passes the type checker.
 
-# Note: These functions may not have a docstring and thus it may not adhere to
+# TODO: These functions may not have a docstring and thus it may not adhere to
 # industry best practices for Python source code. You may need to add a
 # docstring so that this function is correctly documented by an software
 # engineer using it.
@@ -178,14 +178,14 @@ def calculate_coverage_score(coverage_items: List[CoverageItem]) -> float:
 # You could image that this file was produced by a test coverage monitoring
 # tool and then saved to the disk in a file called coverage.json.
 
-# Note: Your implementation of this function should not modify the existing
+# TODO: Your implementation of this function should not modify the existing
 # implementation of the CoverageItem class.
 
-# Note: This function may not not have all of the correct type annotations for
+# TODO: This function may not not have all of the correct type annotations for
 # certain variables. You must add all of any needed type annotations
 # so that the function and any code that uses it passes the type checker.
 
-# Note: This function may not have a docstring and thus it may not adhere
+# TODO: This function may not have a docstring and thus it may not adhere
 # to industry best practices for Python source code. You may need to add a docstring
 # so that this function is correctly documented by an software engineer using it.
 
@@ -256,11 +256,11 @@ def read_coverage_report_from_json(file_path: str) -> List[CoverageItem]:
 # You could imagine that this file was produced by a test coverage monitoring
 # tool and then saved to the disk in a file called coverage.yaml.
 
-# Note: This function may not not have all of the correct type annotations for
+# TODO: This function may not not have all of the correct type annotations for
 # certain variables. You must add all of any needed type annotations
 # so that the function and any code that uses it passes the type checker.
 
-# Note: This function may not have a docstring and thus it may not adhere
+# TODO: This function may not have a docstring and thus it may not adhere
 # to industry best practices for Python source code. You may need to add a docstring
 # so that this function is correctly documented by an software engineer using it.
 
