@@ -191,7 +191,6 @@ def calculate_coverage_score(coverage_items: List[CoverageItem]) -> float:
 
 
 def read_coverage_report_from_json(file_path: str) -> List[CoverageItem]:
-    """Read and parse a JSON file to create a list of CoverageItem objects."""
     coverage_report = []
     return coverage_report
 
